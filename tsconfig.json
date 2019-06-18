@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist"
+    ,"sourceMap": true //保留映射文件，方便调试
+    ,"noImplicitAny": true //没有隐式的any
+    ,"module": "commonjs"
+    ,"target": "es5"
+    ,"jsx": "react"
+  }
+  ,"include": ["./src/**/*"]
+  ,"exclude": ["node_modules"]
+}
