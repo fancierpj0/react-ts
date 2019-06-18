@@ -49,3 +49,62 @@ npm i pre-commit -D
 //如果想强行提交,commit时代上参数
 git commit -n (or --no-verify)
 ```
+
+## 单元测试
+Mocha是现在最流行的JavaScript测试框架之一，在浏览器和Node环境都可以使用。
+
+所谓"测试框架"，就是运行测试的工具。通过它，可以为JavaScript应用添加测试，从而保证代码的质量
+```
+npm i mocha  @types/mocha chai @types/chai ts-node @types/node  --save-dev
+```
+
+mocha是当成node环境来运行的(import export不支持，若要支持) ↓
+
+```
+//1.tsconfig.json 的 module 要置为 common.js
+{
+  "compilerOptions": {
+    "module": "commonjs"
+}
+或则 在pakage.json中通过社会组环境变量达到同样的效果
+"scripts": {
+"test": "set TS_NODE_COMPILER_OPTIONS={\"module\":\"commonjs\"}  && mocha --require ts-node/register --watch --watch-extensions ts test/**/*"
+},    
+
+//2. package.json↓
+//需要ts-node/register支持
+//文件变化后重新进行编译 然后执行test
+"test": "mocha --require ts-node/register --watch --watch-extensions ts test/**/*
+"
+```
+### 指定测试脚本文件
+mocha命令后面紧跟测试脚本的路径和文件名，可以指定多个测试脚本。
+
+Mocha默认运行test子目录里面的测试脚本。所以，一般都会把测试脚本放在test目录里面，然后执行mocha就不需要参数了
+
+加上--recursive参数，就会执行test子目录下面所有的层的测试用例
+
+命令行指定测试脚本时，可以使用通配符，同时指定多个文件
+```
+mocha spec/{a,b}.js      执行spec目录下面的a.js和b.js
+mocha test/*.js     执行test目录下面的所有文件
+mocha test/**/*.js   执行test目录下面任何子目录中、文件后缀名为js的测试脚本
+```
+### 配置mocha.opts
+Mocha允许在test目录下面，放置配置文件mocha.opts，把命令行参数写在里面
+```
+--require ts-node/register 
+--watch 
+--watch-extensions ts
+test/sum.test.ts
+```
+### bignumber.js
+用来解决小数相加不精确的问题
+
+### 方法调用
+```
+npm install sinon @types/sinon -D
+```
+
+### //@ts-ignore
+忽略下一行ts报错

@@ -4,12 +4,15 @@
   "description": "ts、react和工程化のtutorial",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server",
     "eslint": "eslint . --ext .ts",
-    "eslint:fix": "eslint . --ext .ts --fix"
+    "eslint:fix": "eslint . --ext .ts --fix",
+    "test": "mocha"
   },
-  "pre-commit": ["eslint:fix","eslint"],
+  "pre-commit": [
+    "eslint:fix",
+    "eslint"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -33,13 +36,21 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.0.8",
+    "@types/sinon": "^7.0.13",
     "@typescript-eslint/eslint-plugin": "^1.10.2",
     "@typescript-eslint/parser": "^1.10.2",
+    "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "html-webpack-plugin": "^3.2.0",
+    "mocha": "^6.1.4",
     "pre-commit": "^1.2.2",
+    "sinon": "^7.3.2",
     "source-map-loader": "^0.2.4",
     "ts-loader": "^6.0.3",
+    "ts-node": "^8.3.0",
     "typescript": "^3.5.2",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",
