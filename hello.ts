@@ -1,7 +1,7 @@
 console.log('hello');
 
-var name1 = 'ahhh';
+const name1 = 'ahhh';
 let age = 10;
 if(true){
-  let city = 'peking';
+    let city = 'peking';
 }
