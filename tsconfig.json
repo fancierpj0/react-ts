@@ -6,7 +6,8 @@
     ,"module": "commonjs"
     ,"target": "es5"
     ,"jsx": "react"
-  }
-  ,"include": ["./src/**/*"]
+    ,"allowJs": true //允许ts工程中编译js代码
+    ,"checkJs": false //以ts的标准检查js
+  },"include": ["./src/**/*"]
   ,"exclude": ["node_modules"]
 }
