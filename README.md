@@ -35,3 +35,17 @@ https://eslint.org/docs/rules/
 "eslint:fix": "eslint . --ext .ts --fix"
 
 ```
+
+## pre-commit
+```
+npm i pre-commit -D
+```
+
+```
+//package.json
+//提交前运行eslint
+"pre-commit": ["eslint"],
+
+//如果想强行提交,commit时代上参数
+git commit -n (or --no-verify)
+```
